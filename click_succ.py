@@ -32,8 +32,31 @@ def get_field_click_success_df(df, field, prefix=''):
     df_clk.sort(success_str, ascending=False, inplace=True)
     return df_clk
 
+def get_most_successfuls_df(df, field, click_thld=30, verbose=False):
+    """Returns a dict of the most successful field values
 
-def get_most_successfuls(df, field, click_thld=30):
+    output dict format: {field_value: {success:X, success_std:Y}}
+
+    Args:
+        df (pandas dataframe): with the field 'field'
+        field (str): field of df to be search for successful
+        click_thld: Minimal number of counts to be a valid result
+    """
+    df_clk = get_field_click_success_df(df, field)
+    # Keep only values above threshold
+    df_clk = df_clk[df_clk.clicked > click_thld]
+    if verbose:
+        print('Top sucessful results')
+        print(df_clk[:10])
+    if len(df_clk) < 1:
+        print '\nError: not enough clicks to satisfy threshold conditions\n'
+        return None
+    # Requesting all results that are compatible with the most successful
+    best, best_std = df_clk.iloc[0][['success', 'success_std']]
+    return df_clk[(df_clk.success + df_clk.success_std) >= (best - best_std)]
+
+
+def get_most_successfuls(df, field, click_thld=30, verbose=True):
     """Return the list of most successful values of the given field.
 
     The list contains all statistically compatible values
@@ -45,22 +68,7 @@ def get_most_successfuls(df, field, click_thld=30):
         field (str): field of df to be search for successful
         click_thld: Minimal number of counts to be a valid result
     """
-    df_clk = get_field_click_success_df(df, field)
-    # Keep only values above threshold
-    df_clk = df_clk[df_clk.clicked > click_thld]
-
-    print('Top sucessful results')
-    print(df_clk[:10])
-    if len(df_clk) < 1:
-        print '\nError: not enough clicks to satisfy threshold conditions\n'
-        return None
-    # Requesting all results that are compatible with the most successful
-    best, best_std = df_clk.iloc[0][['success', 'success_std']]
-    df_clk = df_clk[(df_clk.success + df_clk.success_std) >= (best - best_std)]
-    # The dataframe now contains all the statistically comparable results
-    if len(df_clk) > 1:
-        print('\nStatistically comparable results:')
-        print(df_clk)
+    df_clk = get_most_successfuls_df(df, field, click_thld, verbose)
     return df_clk.index.tolist()
 
 
