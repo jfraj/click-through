@@ -6,13 +6,13 @@ Analysis of click-through rate
 ## Discrete questions
 
 * How many distinct ads were shown for the 10 day period in total and per day?
-answer and code in `notebook/distinct_ads.ipynb`
+answer and code in [notebook/distinct_ads.ipynb](https://github.com/jfraj/click-through/blob/master/notebooks/distinct_ads.ipynb)
 * which app_domain is the most successful?
 answer and code in `notebooks/successful_app_domain.ipynb`
 * which banner position is the most successful?
-answer and code in notebooks/successful_banner.ipynb
+answer and code in `notebooks/successful_banner.ipynb`
 * Provide the top 10 most successful site_categories for the 10 day period
-answer and code in notebooks/top10_site_category.ipynb
+answer and code in `notebooks/top10_site_category.ipynb`
 
 ## Data insight
 As a reference for any successful field, the following plot
