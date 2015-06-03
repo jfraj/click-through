@@ -63,7 +63,11 @@ Some field contains more correlations between their values than others, here is 
 
 ![alt text](https://raw.githubusercontent.com/jfraj/click-through/master/plots/corr_C20.png)
 
+<<<<<<< HEAD
 ### A closer look at the most successful app_domain
+=======
+## A closer look at the most successful app_domain
+>>>>>>> 7d117f3... added section about app_domain 99b4c806
 Here is a plot of the most successful app_domain determined in the discrete questions.
 
 ![alt text](https://raw.githubusercontent.com/jfraj/click-through/master/plots/app_domain_success_trend.png)
