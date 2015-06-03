@@ -39,3 +39,15 @@ This can be use to predict the success of one value when their is only data on a
 Some field contains more correlations between their values than others, here is the distributions of the 100 most successful paired values of the C20 field:
 
 ![alt text](https://raw.githubusercontent.com/jfraj/click-through/master/plots/corr_C20.png)
+
+## A closer look at the most successful app_domain
+Here is a plot of the most successful app_domain determined in the discrete questions.
+
+![alt text](https://raw.githubusercontent.com/jfraj/click-through/master/plots/app_domain_success_trend.png)
+
+Clearly, app_domain 99b4c806 is only successful one day, the 28th, but it's the number of impressions are so large that they overwhelm all other days of lower success.  The following plot shows how the distributions of some fields on the 28th and the rest of the data set.
+
+![alt text](https://raw.githubusercontent.com/jfraj/click-through/master/plots/app_domain_28th.png)
+
+(code to produce this plot in `notebooks/app_domain_28th.ipynb`)
+There are four fields that are clearly different on the 28th: C14, C17, C18 & C19.  Some of them most likely influence the success.  Indeed, C14 and C17 have values that can have very high success.  This could be investigated by looking at which combinations are successful on the 28th and see if they are still successful (but less frequent) on other days.
