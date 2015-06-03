@@ -27,7 +27,6 @@ The code assumes the data to be in `./data/`
 
 ## Discrete questions
 
-<<<<<<< HEAD
 * **How many distinct ads were shown for the 10 day period in total and per day?**
 answer and code in [notebook/distinct_ads.ipynb](https://github.com/jfraj/click-through/blob/master/notebooks/distinct_ads.ipynb)
 * **Which app_domain is the most successful?**
@@ -36,16 +35,6 @@ answer and code in [notebooks/successful_app_domain.ipynb](https://github.com/jf
 answer and code in [notebooks/successful_banner.ipynb](https://github.com/jfraj/click-through/blob/master/notebooks/successful_banner.ipynb)
 * **Provide the top 10 most successful site_categories for the 10 day period?**
 answer and code in [notebooks/top10_site_category.ipynb](https://github.com/jfraj/click-through/blob/master/notebooks/top10_site_category.ipynb)
-=======
-* How many distinct ads were shown for the 10 day period in total and per day?
-answer and code in [notebook/distinct_ads.ipynb](https://github.com/jfraj/click-through/blob/master/notebooks/distinct_ads.ipynb)
-* which app_domain is the most successful?
-answer and code in `notebooks/successful_app_domain.ipynb`
-* which banner position is the most successful?
-answer and code in `notebooks/successful_banner.ipynb`
-* Provide the top 10 most successful site_categories for the 10 day period
-answer and code in `notebooks/top10_site_category.ipynb`
->>>>>>> 6d3b917... prettier readme
 
 ## Data insight
 (plots for this section were produced in [this notebook](https://github.com/jfraj/click-through/blob/master/notebooks/data_insight.ipynb))
