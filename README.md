@@ -17,6 +17,33 @@ The backend of these notebooks consists of two python modules:
 * [time_click.py](https://github.com/jfraj/click-through/blob/master/time_click.py) for time-related calculation and plotting.
 
 
+## Data storing with pickle
+In order to save time, the dataframe created from the csv file
+can be saved (pickled) in a given directory with the following command
+
+`storing_data.save_df_by_chunk('data/train.csv')`
+
+the dataframe will by saved in 10 pickle files in the directory `pkld_data`
+under the names `pkled_chunk_?.pkl`, where `?=0,1,2...`.
+
+The dataframe can be loaded in the following way
+
+`storing_data.get_df('pkld_data/')`
+
+The above code assumes that the `storing_data.py` module is imported:
+
+`import storing_data`
+
+It also assumes that the directory `pkld_data/` exists
+*and* that the csv file is in the `./data/` directory.
+
+As an example, the notebook [notebook/distinct_ads.ipynb](https://github.com/jfraj/click-through/blob/master/notebooks/distinct_ads.ipynb) uses the pickled dataframe that was saved in `pkld_data/`.
+Finally, for testing purposes, the argument `max_chunks=[some int < 10]`
+can be provided to `get_df` to get a dataframe with less data.
+
+**Warning**: make sure there are no `pkled_chunk_?.pkl` files
+already in `pkld_data/`. This check should be added to the code.
+
 ## Language and tools
 * python 2.7
 * ipython 3.0.0
